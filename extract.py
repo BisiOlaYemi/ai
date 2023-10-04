@@ -43,9 +43,9 @@ def extract_and_process_details():
                                         url_match = re.search(r'https://[^\s]+', product_description)
                                         product_url = url_match.group() if url_match else ''
 
-                                        clean_text = re.sub(r'https://[^\s]+', '', product_description).strip()
+                                        description = re.sub(r'https://[^\s]+', '', product_description).strip()
 
-                                        csv_row = [product_name, clean_text, product_id, product_url]
+                                        csv_row = [product_name, description, product_id, product_url]
                                         csv_writer.writerow(csv_row)
 
                                         processed_data.append(csv_row)
